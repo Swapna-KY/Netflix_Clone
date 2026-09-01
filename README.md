@@ -1,5 +1,8 @@
 # 🎬 Netflix Clone - Full Stack Project
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSwapna-KY%2Fnetflix-clone)
+**Live Demo:** [https://netflix-clone-swapna-ky1.vercel.app](https://netflix-clone-swapna-ky1.vercel.app)
+
 A professional Netflix clone built with **Node.js/Express**, **MySQL**, and **Vanilla JavaScript**. Features user authentication, watchlist management, and real TV show data from TVMaze API.
 
 ## 📋 Features
