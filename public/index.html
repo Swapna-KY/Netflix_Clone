@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Netflix - Watch TV shows and movies anytime, anywhere. Sign up now. Cancel anytime.">
+    <title>Netflix - Watch TV Shows Online, Watch Movies Online</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+
+            <!-- Netflix Logo -->
+            <a href="#" class="logo" id="logoHome">
+                <span class="nf-logo">NETFLIX</span>
+            </a>
+
+            <!-- Nav links (shown when logged in) -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">TV Shows</a></li>
+                <li><a href="#" class="nav-link">TV Dramas</a></li>
+                <li><a href="#" class="nav-link">New &amp; Popular</a></li>
+                <li><a href="#" class="nav-link">My List</a></li>
+            </ul>
+
+            <!-- Right side -->
+            <div class="nav-right">
+
+                <!-- Search icon -->
+                <button class="nav-icon-btn" id="navSearchBtn" title="Search" style="display:none">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <!-- Notification bell -->
+                <div class="notification-menu" id="notificationMenu" style="display:none; position: relative;">
+                    <button class="nav-icon-btn" id="navBellBtn" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notif-badge">2</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notif-header">Notifications</div>
+                        <div class="notif-item">
+                            <i class="fas fa-fire notif-icon"></i>
+                            <div class="notif-text">
+                                <p class="notif-title">New this week</p>
+                                <p class="notif-sub">Fresh shows added to your Browse feed</p>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <i class="fas fa-heart notif-icon"></i>
+                            <div class="notif-text">
+                                <p class="notif-title">My List updated</p>
+                                <p class="notif-sub">Shows you saved are available to watch</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Sign In button (shown when logged out) -->
+                <button class="nav-signin-btn" id="openLogin">Sign In</button>
+
+                <!-- User profile (shown when logged in) -->
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <div class="user-avatar" id="userAvatarTrigger">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile"
+                            class="avatar-img">
+                        <i class="fas fa-caret-down avatar-caret" id="avatarCaret"></i>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-profile">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                                alt="Profile">
+                            <span id="userName"></span>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" onclick="return false;" title="Demo only"><i
+                                class="fas fa-user"></i> Manage Profiles</a>
+                        <a href="#" class="dropdown-item" onclick="return false;" title="Demo only"><i
+                                class="fas fa-user-circle"></i> Account</a>
+                        <a href="https://help.netflix.com/" target="_blank" class="dropdown-item"><i
+                                class="fas fa-question-circle"></i> Help Centre</a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item dropdown-signout" id="logoutBtn">Sign out of Netflix</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- =========================================================
+         HERO SECTION (Landing page — shown when NOT logged in)
+    ========================================================== -->
+
+    <section class="hero" id="heroSection">
+
+        <!-- Background -->
+        <div class="hero-bg">
+            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/47c2bc46-e71d-4c2e-9b0c-e6db13bb5aa9/web/IN-en-20250818-TRIFECTA-perspective_40e5a9c1-a3e7-41c3-945d-ef58b35ab4dd_large.jpg"
+                alt="Netflix shows background" class="hero-bg-img"
+                onerror="this.src='https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=2000&q=80'">
+        </div>
+
+        <!-- Top gradient -->
+        <div class="hero-gradient-top"></div>
+        <!-- Bottom gradient -->
+        <div class="hero-gradient-bottom"></div>
+
+        <!-- Hero content -->
+        <div class="hero-content" id="heroContent">
+            <h1>Unlimited movies, TV shows, and more</h1>
+            <p class="hero-sub">Starts at ₹149. Cancel anytime.</p>
+            <p class="hero-cta-text">Ready to watch? Enter your email to create or restart your membership.</p>
+
+            <!-- Email CTA form -->
+            <form class="hero-email-form" id="heroEmailForm">
+                <div class="hero-email-wrapper">
+                    <input type="email" id="heroEmail" placeholder="Email address" autocomplete="email">
+                    <button type="submit" class="hero-get-started-btn">
+                        Get Started <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         BROWSE SECTION (shown when logged in)
+    ========================================================== -->
+
+    <section class="browse-hero" id="browseHero" style="display:none;">
+
+        <!-- Featured show background -->
+        <div class="browse-hero-bg">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=2000&q=80"
+                alt="Featured show" class="browse-hero-bg-img" id="heroBgImg">
+        </div>
+        <div class="browse-hero-gradient"></div>
+
+        <!-- Featured show info -->
+        <div class="browse-hero-content">
+            <div class="featured-badge">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="N"
+                    class="n-badge"> Series
+            </div>
+            <h1 class="featured-title" id="heroTitle">Stranger Things</h1>
+            <p class="featured-desc" id="heroDesc">When a young boy vanishes, a small town uncovers a mystery involving secret
+                experiments, terrifying supernatural forces, and one strange little girl.</p>
+            <div class="featured-actions">
+                <button class="btn-play" id="featuredPlayBtn">
+                    <i class="fas fa-play"></i> Play
+                </button>
+                <button class="btn-more-info" id="featuredMoreBtn">
+                    <i class="fas fa-info-circle"></i> More Info
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TRENDING NOW ROW
+    ========================================================== -->
+
+    <section class="content-row" id="trendingRow">
+
+        <h2 class="row-title">Trending Now</h2>
+
+        <div class="row-slider-wrapper">
+            <button class="slider-btn slider-prev" id="trendingPrev" aria-label="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="row-slider" id="trendingContainer"></div>
+
+            <button class="slider-btn slider-next" id="trendingNext" aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         MY LIST ROW (shown when logged in and list is not empty)
+    ========================================================== -->
+
+    <section class="content-row" id="myListSection" style="display:none;">
+
+        <h2 class="row-title">My List</h2>
+
+        <div class="row-slider-wrapper">
+            <button class="slider-btn slider-prev" id="myListPrev" aria-label="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="row-slider" id="myListContainer"></div>
+            <button class="slider-btn slider-next" id="myListNext" aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SEARCH RESULTS SECTION
+    ========================================================== -->
+
+    <section class="content-row search-results-row" id="resultsSection" style="display:none;">
+
+        <div class="search-results-header">
+            <h2 class="row-title" id="resultTitle">Search Results</h2>
+            <button class="close-search-btn" id="closeSearchResults">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="movie-grid" id="movieResults"></div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SEARCH BAR (floating, shown when search icon clicked)
+    ========================================================== -->
+
+    <div class="search-bar-overlay" id="searchBarOverlay">
+        <form class="search-bar-form" id="searchForm">
+            <i class="fas fa-search search-icon-inner"></i>
+            <input type="text" id="keyword" placeholder="Titles, people, genres" autocomplete="off">
+            <button type="button" class="search-close-btn" id="searchCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </form>
+    </div>
+
+
+    <!-- =========================================================
+         FEATURE SECTIONS (Netflix-style horizontal splits)
+         Visible only when logged OUT
+    ========================================================== -->
+
+    <div class="reasons-wrapper" id="featuresWrapper">
+        <div class="reasons-inner">
+            <h2 class="reasons-title">More Reasons to Join</h2>
+            
+            <div class="reasons-grid">
+                
+                <!-- Card 1: TV -->
+                <div class="reason-card">
+                    <div class="reason-card-content">
+                        <h3 class="reason-card-title">Enjoy on your TV</h3>
+                        <p class="reason-card-desc">Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+                    </div>
+                    <div class="reason-card-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2: Download -->
+                <div class="reason-card">
+                    <div class="reason-card-content">
+                        <h3 class="reason-card-title">Download your shows to watch offline</h3>
+                        <p class="reason-card-desc">Save your favourites easily and always have something to watch.</p>
+                    </div>
+                    <div class="reason-card-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3: Watch Everywhere -->
+                <div class="reason-card">
+                    <div class="reason-card-content">
+                        <h3 class="reason-card-title">Watch everywhere</h3>
+                        <p class="reason-card-desc">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                    </div>
+                    <div class="reason-card-icon">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4: Kids -->
+                <div class="reason-card">
+                    <div class="reason-card-content">
+                        <h3 class="reason-card-title">Create profiles for kids</h3>
+                        <p class="reason-card-desc">Send kids on adventures with their favourite characters in a space made just for them — free with your membership.</p>
+                    </div>
+                    <div class="reason-card-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="features-divider"></div>
+
+        <!-- FAQ -->
+    <div class="faq-wrapper">
+        <section class="faq-section" id="faqSection">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What is Netflix?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies,
+                            anime, documentaries, and more on thousands of internet-connected devices.</p>
+                        <p>You can watch as much as you want, whenever you want — without a single commercial. There's
+                            always something new to discover and new TV shows and movies are added every week!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How much does Netflix cost?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one
+                            fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Where can I watch?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at
+                            netflix.com from your personal computer or on any internet-connected device that offers the
+                            Netflix app, including smart TVs, smartphones, tablets, streaming media players and game
+                            consoles.</p>
+                        <p>You can also download your favourite shows with the iOS or Android app. Use downloads to
+                            watch while you're on the go and without an internet connection. Take Netflix with you
+                            anywhere.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do I cancel?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel
+                            your account online in two clicks. There are no cancellation fees – start or stop your
+                            account anytime.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What can I watch on Netflix?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime,
+                            award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is Netflix good for kids?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The Netflix Kids experience is included in your membership to give parents control while kids
+                            enjoy family-friendly TV shows and movies in their own space.</p>
+                        <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity
+                            rating of content kids can watch and block specific titles you don't want kids to see.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Email Form -->
+            <div class="faq-cta">
+                <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                
+                <form class="hero-email-form faq-email-form" id="faqEmailForm">
+                    <div class="hero-email-wrapper">
+                        <input type="email" id="faqEmail" placeholder="Email address" required>
+                        <button type="submit" class="hero-get-started-btn">
+                            Get Started <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="features-divider"></div>
+
+
+    <!-- =========================================================
+         SIGN IN MODAL
+    ========================================================== -->
+
+    <div class="modal-overlay" id="loginOverlay">
+        <div class="modal-bg-img">
+            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/47c2bc46-e71d-4c2e-9b0c-e6db13bb5aa9/web/IN-en-20250818-TRIFECTA-perspective_40e5a9c1-a3e7-41c3-945d-ef58b35ab4dd_large.jpg"
+                alt="">
+        </div>
+
+        <div class="modal-box" id="loginBox">
+
+            <!-- Logo inside modal -->
+            <a href="#" class="modal-logo">
+                <span class="nf-logo nf-logo--modal">NETFLIX</span>
+            </a>
+
+            <h2>Sign In</h2>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+
+                <div class="form-group" id="loginEmailGroup">
+                    <div class="floating-label-wrap">
+                        <input type="email" id="loginEmail" class="floating-input" placeholder=" " autocomplete="email">
+                        <label for="loginEmail" class="floating-label">Email or phone number</label>
+                    </div>
+                    <span class="error-message" id="loginEmailError"></span>
+                </div>
+
+                <div class="form-group password-wrapper" id="loginPasswordGroup">
+                    <div class="floating-label-wrap">
+                        <input type="password" id="loginPassword" class="floating-input" placeholder=" "
+                            autocomplete="current-password">
+                        <label for="loginPassword" class="floating-label">Password</label>
+                        <button type="button" id="loginPasswordToggle" class="password-toggle-btn" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #8c8c8c; cursor: pointer; font-size: 16px;">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="loginPasswordError"></span>
+                </div>
+
+                <button type="submit" class="modal-submit-btn" id="loginSubmitBtn">Sign In</button>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="https://help.netflix.com/support/412" target="_blank" class="forgot-password">Need help?</a>
+                </div>
+
+                <span class="message" id="loginMessage"></span>
+
+            </form>
+
+            <div class="modal-footer">
+                <p>New to Netflix? <button class="link-btn" id="switchToSignup">Sign up now.</button></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         SIGN UP MODAL
+    ========================================================== -->
+
+    <div class="modal-overlay" id="signupOverlay">
+        <div class="modal-bg-img">
+            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/47c2bc46-e71d-4c2e-9b0c-e6db13bb5aa9/web/IN-en-20250818-TRIFECTA-perspective_40e5a9c1-a3e7-41c3-945d-ef58b35ab4dd_large.jpg"
+                alt="">
+        </div>
+
+        <div class="modal-box" id="signupBox">
+
+            <!-- Logo inside modal -->
+            <a href="#" class="modal-logo">
+                <span class="nf-logo nf-logo--modal">NETFLIX</span>
+            </a>
+
+            <h2>Sign Up</h2>
+            <p class="modal-subtitle">Create your account to start watching.</p>
+
+            <!-- Signup Form -->
+            <form id="signupForm">
+
+                <div class="form-group">
+                    <div class="floating-label-wrap">
+                        <input type="text" id="signupName" class="floating-input" placeholder=" " autocomplete="name">
+                        <label for="signupName" class="floating-label">Name</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="floating-label-wrap">
+                        <input type="email" id="signupEmail" class="floating-input" placeholder=" "
+                            autocomplete="email">
+                        <label for="signupEmail" class="floating-label">Email address</label>
+                    </div>
+                    <span class="error-message" id="signupEmailError"></span>
+                </div>
+
+                <div class="form-group password-wrapper">
+                    <div class="floating-label-wrap">
+                        <input type="password" id="signupPassword" class="floating-input" placeholder=" "
+                            autocomplete="new-password">
+                        <label for="signupPassword" class="floating-label">Password</label>
+                        <button type="button" id="signupPasswordToggle" class="password-toggle-btn" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #8c8c8c; cursor: pointer; font-size: 16px;">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="signupPasswordError"></span>
+                </div>
+
+                <button type="submit" class="modal-submit-btn" id="signupSubmitBtn">Sign Up</button>
+
+                <span class="message" id="signupMessage"></span>
+
+            </form>
+
+            <div class="modal-footer">
+                <p>Already have an account? <button class="link-btn" id="switchToLogin">Sign in.</button></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         MOVIE DETAIL MODAL
+    ========================================================== -->
+
+    <div class="modal-overlay detail-overlay" id="detailOverlay">
+        <div class="detail-box" id="detailBox">
+            <button class="detail-close" id="detailClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="detail-hero">
+                <img src="" alt="" id="detailImage" class="detail-hero-img">
+                <div class="detail-hero-gradient"></div>
+                <div class="detail-hero-content">
+                    <h2 id="detailTitle"></h2>
+                    <div class="detail-actions">
+                        <button class="btn-play detail-play-btn" id="detailPlayBtn">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="detail-fav-btn" id="detailFavBtn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-info">
+                <div class="detail-meta">
+                    <span class="detail-match">98% Match</span>
+                    <span id="detailYear" class="detail-year"></span>
+                    <span class="detail-rating">TV-MA</span>
+                </div>
+                <p id="detailDesc" class="detail-desc"></p>
+                <div class="detail-genres">
+                    <span class="genres-label">Genres: </span>
+                    <span id="detailGenres"></span>
+                </div>
+                <div class="detail-extra">
+                    <p><span class="genres-label">Language: </span> <span id="detailLanguage"></span></p>
+                    <p><span class="genres-label">Status: </span> <span id="detailStatus"></span></p>
+                    <p><span class="genres-label">Official Site: </span> <a href="#" id="detailSite" target="_blank" style="color: #fff; text-decoration: underline;"></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         VIDEO PLAYER MODAL
+    ========================================================== -->
+
+    <div class="modal-overlay video-overlay" id="videoOverlay">
+        <div class="video-top-bar">
+            <button class="video-close" id="videoClose" aria-label="Close Video">
+                <i class="fas fa-arrow-left"></i> Back to Browse
+            </button>
+            <span class="video-show-title" id="videoShowTitle"></span>
+        </div>
+        <div class="video-container">
+            <!-- YouTube iframe embed — loads reliably in all browsers -->
+            <iframe
+                id="videoPlayer"
+                src=""
+                title="Demo Video"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+
+
+
+    <!-- =========================================================
+         TOAST NOTIFICATION
+    ========================================================== -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <!-- Top brand bar -->
+            <div class="footer-brand">
+                <span class="nf-logo footer-logo">NETFLIX</span>
+                <p class="footer-tagline">Watch anywhere. Cancel anytime.</p>
+            </div>
+
+            <!-- Social icons -->
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/NetflixIN" title="Facebook" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/netflix_in/" title="Instagram" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/netflixindia" title="Twitter / X" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCZSNzBgFub_WWil6TOTYwAg" title="YouTube" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Links grid -->
+            <div class="footer-links">
+                <div class="footer-col">
+                    <span class="footer-col-heading">Company</span>
+                    <a href="https://ir.netflix.net/" target="_blank">Investor Relations</a>
+                    <a href="https://jobs.netflix.com/" target="_blank">Jobs</a>
+                    <a href="https://media.netflix.com/" target="_blank">Media Centre</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-heading">Support</span>
+                    <a href="https://help.netflix.com/" target="_blank">Help Centre</a>
+                    <a href="https://help.netflix.com/contactus" target="_blank">Contact Us</a>
+                    <a href="https://help.netflix.com/legal/notices" target="_blank">Legal Notices</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-heading">Legal</span>
+                    <a href="https://help.netflix.com/legal/privacy" target="_blank">Privacy</a>
+                    <a href="https://help.netflix.com/legal/termsofuse" target="_blank">Terms of Use</a>
+                    <a href="https://help.netflix.com/legal/privacy#cookies" target="_blank">Cookie Preferences</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-heading">More</span>
+                    <a href="https://www.netflix.com/browse/audio-description" target="_blank">Audio Description</a>
+                    <a href="https://www.netflix.com/gift-cards" target="_blank">Gift Cards</a>
+                    <a href="https://help.netflix.com/legal/corpinfo" target="_blank">Corporate Information</a>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 Netflix Clone, Inc. &nbsp;|&nbsp; Educational project only — not affiliated with Netflix.</p>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
