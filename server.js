@@ -97,6 +97,23 @@ async function initializeDatabase() {
 }
 
 // ==========================================
+// DB INITIALIZATION MIDDLEWARE
+// ==========================================
+// In Vercel serverless, ensure DB is initialized before first request
+let dbInitialized = false;
+app.use(async (req, res, next) => {
+    if (!dbInitialized) {
+        try {
+            await initializeDatabase();
+            dbInitialized = true;
+        } catch (error) {
+            console.error('Failed to initialize DB middleware:', error);
+        }
+    }
+    next();
+});
+
+// ==========================================
 // ROUTES
 // ==========================================
 
@@ -316,9 +333,6 @@ app.use((err, req, res, next) => {
 // ==========================================
 
 const PORT = process.env.PORT || 3000;
-
-// Initialize database tables if they don't exist
-initializeDatabase();
 
 // Only listen on a port locally. Vercel handles serving the app directly.
 if (process.env.NODE_ENV !== 'production') {
