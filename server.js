@@ -25,14 +25,17 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static('public'));
 
+// Trust Vercel's proxy so secure cookies are sent properly
+app.set('trust proxy', 1);
+
 app.use(session({
     secret: process.env.SESSION_SECRET || 'netflix-secret-key',
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // HTTPS on Vercel, HTTP locally
+        secure: process.env.NODE_ENV === 'production', // HTTPS on Vercel
         httpOnly: true,
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+        sameSite: 'lax' // Both frontend and backend are on the same Vercel domain
     }
 }));
 
