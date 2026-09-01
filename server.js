@@ -317,11 +317,16 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-initializeDatabase().then(() => {
+// Initialize database tables if they don't exist
+initializeDatabase();
+
+// Only listen on a port locally. Vercel handles serving the app directly.
+if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {
         console.log(`\n🎬 Netflix Clone Server running at http://localhost:${PORT}`);
         console.log(`📊 Database: ${process.env.DB_NAME || 'netflix_clone'}\n`);
     });
-});
+}
 
+// Export for Vercel Serverless Functions
 module.exports = app;
